@@ -1,0 +1,12 @@
+helm install troweprice pingidentity/ping-devops -f troweprice.yaml
+
+helm upgrade --install troweprice pingidentity/ping-devops -f troweprice.yaml
+
+helm uninstall troweprice
+
+https://pingfederate-admin-trowepricep.ping-devops.com:443/pingfederate/app?service=finishsso
+https://pingfederate-engine-troweprice.ping-devops.com
+
+git add .
+git commit -m "Add new files"
+git push
