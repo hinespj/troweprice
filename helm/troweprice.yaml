@@ -55,7 +55,7 @@ pingfederate-admin:
   envs:
     PF_LOG_LEVEL: DEBUG
     PING_IDENTITY_PASSWORD: 2FederateM0re
-    SERVER_PROFILE_URL: https://github.com/hinespj/trowepricep.git
+    SERVER_PROFILE_URL: https://github.com/hinespj/troweprice.git
     SERVER_PROFILE_PATH: server-profile/pingfederate
 
 ############################################################
@@ -74,12 +74,12 @@ pingfederate-admin:
 # Admin OIDC Authn Properties
 #
 ############################################################
-    PF_OIDC_AUTHORIZATION_ENDPOINT: https://auth.pingone.com/2cc89e89-602c-426f-93ae-b4ef26cfb6c2/as/authorize
-    PF_OIDC_TOKEN_ENDPOINT: https://auth.pingone.com/2cc89e89-602c-426f-93ae-b4ef26cfb6c2/as/token
-    PF_OIDC_USER_INFO_ENDPOINT: https://auth.pingone.com/2cc89e89-602c-426f-93ae-b4ef26cfb6c2/as/userinfo
-    PF_OIDC_USER_SESSION_ENDPOINT: https://auth.pingone.com/2cc89e89-602c-426f-93ae-b4ef26cfb6c2/as/signoff
-    PF_OIDC_END_SESSION_ENDPOINT: https://auth.pingone.com/2cc89e89-602c-426f-93ae-b4ef26cfb6c2/as/signoff
-    PF_OIDC_ISSUER: https://auth.pingone.com/2cc89e89-602c-426f-93ae-b4ef26cfb6c2/as
+    PF_OIDC_AUTHORIZATION_ENDPOINT: https://auth.pingone.com/092fecbc-505f-4a89-8308-fdde83b33bdf/as/authorize
+    PF_OIDC_TOKEN_ENDPOINT: https://auth.pingone.com/092fecbc-505f-4a89-8308-fdde83b33bdf/as/token
+    PF_OIDC_USER_INFO_ENDPOINT: https://auth.pingone.com/092fecbc-505f-4a89-8308-fdde83b33bdf/as/userinfo
+    PF_OIDC_USER_SESSION_ENDPOINT: https://auth.pingone.com/092fecbc-505f-4a89-8308-fdde83b33bdf/as/signoff
+    PF_OIDC_END_SESSION_ENDPOINT: https://auth.pingone.com/092fecbc-505f-4a89-8308-fdde83b33bdf/as/signoff
+    PF_OIDC_ISSUER: https://auth.pingone.com/092fecbc-505f-4a89-8308-fdde83b33bdf/as
     PF_OIDC_SCOPES: openid email profile 
     PF_OIDC_ACR_VALUES: ""
     PF_OIDC_USERNAME_ATTRIBUTE_NAME: name
@@ -101,7 +101,7 @@ pingfederate-engine:
   envs:
     PF_LOG_LEVEL: DEBUG
     PING_IDENTITY_PASSWORD: 2FederateM0re
-    SERVER_PROFILE_URL: https://github.com/hinespj/trowepricep.git
+    SERVER_PROFILE_URL: https://github.com/hinespj/troweprice.git
     SERVER_PROFILE_PATH: server-profile/pingfederate
     PF_ADMIN_PORT: "443"
     PF_ADMIN_PUBLIC_HOSTNAME: pingfederate-admin-trowepricep.ping-devops.com
