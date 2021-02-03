@@ -31,7 +31,7 @@
   "configureCiba": false,
   "reportCertificateErrors": false,
   "displaySetupMessage": false,
-  "adminHostAndPort": "pingfederate-admin-trowepricep.ping-devops.com:443",
+  "adminHostAndPort": "pingfederate-admin-troweprice.ping-devops.com:443",
   "adminUsername": "administrator",
   "txClientId": "tx_client",
   "txClientSecret": ""
