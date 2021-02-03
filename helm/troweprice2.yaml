@@ -89,8 +89,8 @@ pingfederate-admin:
     PF_OIDC_ROLE_USERADMIN: fullAdmin
     PF_OIDC_ROLE_EXPRESSIONADMIN: fullAdmin 
 
-    PF_OIDC_CLIENT_ID: 28e991c7-c919-4c57-a602-5a176bed479a
-    PF_OIDC_CLIENT_SECRET: I1yIVAEWxphqK1gdRElD9Ljzelt9Mz189rcYPSZdZ944QOdqE03.ui61jI5hOApX    
+    PF_OIDC_CLIENT_ID: 004cdb76-c88f-40af-887e-2eaf84bb1874
+    PF_OIDC_CLIENT_SECRET: 6yzaycpPMh7IMI8x2h3yo71_1pK4FfZeZRc9jJ9F86Z5HiN7Nwge~W6lCS6P9yHW  
     PF_OIDC_CLIENT_AUTHN_METHOD: client_secret_basic
     
 pingfederate-engine:
