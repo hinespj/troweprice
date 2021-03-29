@@ -1,0 +1,40 @@
+#log = @org.apache.commons.logging.LogFactory@getLog("com.pingidentity.ognl.logger"),
+#appgroups = new java.util.ArrayList(),
+#groups = #this.get("ds.PD.isMemberOf")!=null?#this.get("ds.PD.isMemberOf").getValues():{},
+#i = 0,
+#groups.{
+  #group = #this,
+  #group = new javax.naming.ldap.LdapName(#groups[#i]),
+  #log.debug("group :: " + #group),
+  #cn = #group.getRdn(#group.size() - 1).getValue().toString(),
+  #log.debug("cn :: " + #cn),
+  #appgroups.add(#cn),
+  #i = #i + 1
+},
+#raw_oauth_scopes = #this.get("context.OAuthScopes").toString(),
+#log.debug("raw_oauth_scopes :: " + #raw_oauth_scopes),
+#trimmed_oauth_scopes = #raw_oauth_scopes.substring(1,#raw_oauth_scopes.length()-1),
+#log.debug("trimmed_oauth_scopes :: " + #trimmed_oauth_scopes),
+#requested_scope_array = #trimmed_oauth_scopes.split(", "),
+#calculated_groups = "",
+#rs_index = 0,
+#requested_scope_array.{
+  #requested_scope = #requested_scope_array[#rs_index],
+  #log.debug("requested_scope :: " + #requested_scope),
+  #rs_groupName = #requested_scope.substring(#requested_scope.indexOf("-")+1),
+  #log.debug("rs_groupName :: " + #rs_groupName),
+  #mapped_group = #appgroups.contains(#rs_groupName),
+  #log.debug("mapped_group :: " + #mapped_group),
+  #mapped_group==true?
+    (
+      #log.debug("Found a Match"),
+      #calculated_groups = #calculated_groups + " " + #rs_groupName,
+      #log.debug("calculated_groups :: " + #calculated_groups)
+    ):(
+      #log.debug("Found NO a Match")
+    ),
+  #rs_index = #rs_index + 1,
+  #log.debug("rs_index :: " + #rs_index)
+},
+#log.debug("calculated_groups :: " + #calculated_groups),
+#result=#calculated_groups

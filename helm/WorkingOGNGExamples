@@ -1,0 +1,61 @@
+
+#scope = #this.get("context.OAuthScopes"),
+#scope != null &&
+#scope.getValuesAsCollection().size() > 0
+
+#filter1 = "^admins.*",
+#filter2 = "^users.*",
+#filter3 = "^groupname3.*",
+#appgroups = new java.util.ArrayList(),
+#groups = #this.get("ds.PD.isMemberOf")!=null?#this.get("ds.PD.isMemberOf").getValues():{},
+#i = 0,
+#groups.{
+    #group = #this,
+    #group = new javax.naming.ldap.LdapName(#groups[#i]),
+    #cn = #group.getRdn(#group.size() - 1).getValue().toString(),
+    #cn.matches(#filter1)?#appgroups.add(#cn):null,
+    #cn.matches(#filter2)?#appgroups.add(#cn):null,
+    #cn.matches(#filter3)?#appgroups.add(#cn):null,
+    #i = #i + 1},
+#result = #appgroups
+
+#i = #i + 1},
+#result = @org.jose4j.json.internal.json_simple.JSONArray@toJSONString(#appgroups)
+
+#this.get("ds.AD.memberOf")!=null?
+(
+  #raw_oauth_scopes = #this.get("context.OAuthScopes").toString(),
+  #trimmed_oauth_scopes = #raw_oauth_scopes.substring(1,#raw_oauth_scopes.length()-1),
+  #requested_scope_array = #trimmed_oauth_scopes.split(", "),
+  #allowed_scope_map = new java.util.HashMap(),
+  #allowed_scope_map.put("CN=yourgroup1,DC=yourdomain,DC=com","scope1"),
+  #allowed_scope_map.put("cn=admins,ou=partner2,o=partners,dc=sampleCiam.com","app_admins"),
+  #calculated_scope = "",
+  #calculated_scope_index = 0,
+  #groups = #this.get("ds.AD.memberOf").getValues(),
+  #g_index = 0,
+  #groups.{
+    #group = #groups[#g_index],
+    #allowed_scope_map.containsKey(#group)?
+      (
+        #rs_index = 0,
+        #requested_scope_array.{
+          #requested_scope = #requested_scope_array[#rs_index],
+          #allowed_scope_map.get(#group)==#requested_scope?
+            (
+              #calculated_scope_index==0?
+              (
+                #calculated_scope = #calculated_scope + #requested_scope
+              ):
+              (
+                #calculated_scope = #calculated_scope + " " + #requested_scope
+              ),
+              #calculated_scope_index = #calculated_scope_index + 1
+            ):null,
+          #rs_index = #rs_index + 1
+        }
+      ):null,
+    #g_index = #g_index + 1
+  },
+  #result = #calculated_scope
+):null

@@ -1,11 +1,66 @@
-helm install troweprice pingidentity/ping-devops -f troweprice.yaml
+helm install trowepricepoc --repo https://cprice-ping.github.io/helm-charts ping-sample-ciam -f trowepricepoc.yaml
 
-helm upgrade --install troweprice pingidentity/ping-devops -f troweprice.yaml
+https://pingfederate-admin-troweprice.ping-devops.com:443/pingfederate/app?service=finishsso
 
-helm uninstall troweprice
+helm uninstall trowepricepoc
+Kubectl delete pvc/out-dir-trowepricepoc-pingdirectory-0
+Kubectl delete pvc/out-dir-trowepricepoc-pingfederate-admin-0
 
-https://pingfederate-admin-trowepricep.ping-devops.com:443/pingfederate/app?service=finishsso
-https://pingfederate-engine-troweprice.ping-devops.com
+
+https://console.pingone.com/?env=f03e6fac-bfb9-4ad7-8ac4-4275b5a10654&login_hint=c26e9271-1598-4238-a0ba-febe70ec6fb0#home?nav=home
+
+https://console.pingone.com/?env=f03e6fac-bfb9-4ad7-8ac4-4275b5a10654&login_hint=c26e9271-1598-4238-a0ba-febe70ec6fb0#home?nav=trowepricepoc
+
+https://console.pingone.com/?env=f03e6fac-bfb9-4ad7-8ac4-4275b5a10654&login_hint=0865e3f4-ccfa-4b48-a0e9-8b98086878cc#home?nav=trowepricepoc
+
+https://console.pingone.com/?env=f03e6fac-bfb9-4ad7-8ac4-4275b5a10654&login_hint=4dbfc1ee-6f72-4438-8aff-f3880cc2f614#home?nav=trowepricepoc
+4dbfc1ee-6f72-4438-8aff-f3880cc2f614
+
+
+https://console.pingone.com/?env=f03e6fac-bfb9-4ad7-8ac4-4275b5a10654&login_hint=80bda6e5-8909-49e5-8594-a44670721ec2#home?nav=trowepricepoc
+80bda6e5-8909-49e5-8594-a44670721ec2
+
+
+NAME: trowepricepoc
+LAST DEPLOYED: Mon Mar 15 11:48:56 2021
+NAMESPACE: ping-cloud-devops-eks-patrickhines
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+-----------------------------------
+This chart installs a CIAM Solution stack of Ping products.
+
+Enabled Capabilities:
+My Ping, Data Store, Authentication Authority, Multi Factor Service, Adaptive Authentication
+
+Enabled Use Cases:
+Delegated Administration, Unified User Profiles
+
+Environment Name: trowepricepoc
+
+Product Consoles:
+My Ping:       https://console.pingone.com?env=f03e6fac-bfb9-4ad7-8ac4-4275b5a10654#/home?nav=home
+
+PingData:      https://pingdataconsole-trowepricepoc.ping-devops.com
+PingFederate:  https://pingfederate-admin-trowepricepoc.ping-devops.com/pingfederate
+Delegator:     https://trowepricepoc.ping-devops.com/delegator/
+
+External Hostname:
+trowepricepoc.ping-devops.com
+
+Authentication Policy Samples:
+
+SAML (Single_Factor): https://trowepricepoc.ping-devops.com/idp/startSSO.ping?PartnerSpId=Sample-SAML
+OIDC (Multi_Factor):  https://trowepricepoc.ping-devops.com/as/authorization.oauth2?response_type=code&client_id=PingLogon&redirect_uri=https://decoder.pingidentity.cloud/oidc&scope=openid%20profile
+
+Sample Users:
+user.[0-4] | 2FederateM0re
+
+OIDC Decoder Info:
+Issuer:        https://trowepricepoc.ping-devops.com
+Client ID:     PingLogon
+Client Secret: 2FederateM0re
 
 git add .
 git commit -m "Add new files"

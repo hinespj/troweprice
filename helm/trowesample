@@ -1,0 +1,52 @@
+Me to Everyone (2:29 PM)
+setspn -s HTTP / <pf-idp.domain.name> <pf-server-account-name>
+Me to Everyone (2:36 PM)
+(|(uid=${username})(mail=${username}))
+Me to Everyone (3:06 PM)
+/OAuthPlayground/welcome
+Mark Gogel to Everyone (3:30 PM)
+{
+
+  "aud": "https://fs.trowe3.com/ApigeeWeb",
+
+  "iss": "http://fs.trowe3.com/adfs/services/trust",
+
+  "iat": 1532118023,
+
+  "exp": 1532121623,
+
+  "sub": "trpge09",
+
+  "email": "Himalay_Majumdar@troweprice.com",
+
+  "given_name": "Himalay",
+
+  "family_name": "Majumdar",
+
+  "group": [
+
+    "Domain Users",
+
+    "splunk_appdev",
+
+    "su-excluded",
+
+    "iusers",
+
+    "invapp",
+
+    "GBS&TAccess",
+
+    "jira-security-developers",
+
+    "Harvest_Users_Dev",
+
+    "FusionFOServices_Reader",
+
+    "IDQ_TRP_Ref",
+
+    "GrandCentral_BPL_Support_DEV",
+
+    "GrandCentral_BPL_Owner_DEV"
+
+  ],
